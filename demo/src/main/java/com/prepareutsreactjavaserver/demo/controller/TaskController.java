@@ -23,13 +23,10 @@ public class TaskController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Task> getTaskById(@PathVariable Long id) {
-        Optional<Task> task = taskRepository.findById(id);
-        if (task.isPresent()) {
-            return ResponseEntity.ok(task.get());
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    public Object getTaskById(@PathVariable Long id) {
+        Task task = taskRepository.findById(id).orElse(null);
+        // System.out.println(task);
+        return task != null ? task : "Tugas dengan ID " + id + " tidak ditemukan.";
     }
 
     @PostMapping
@@ -51,14 +48,15 @@ public class TaskController {
         }
     }
 
+    @PutMapping()
+    public String updateTask2(@RequestBody Task taskDetails) {
+        taskRepository.save(taskDetails);
+        return "Tugas berhasil diperbarui.";
+    }
+
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteTask(@PathVariable Long id) {
-        Optional<Task> task = taskRepository.findById(id);
-        if (task.isPresent()) {
-            taskRepository.deleteById(id);
-            return ResponseEntity.noContent().build();
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    public String deleteTask(@PathVariable Long id) {
+        taskRepository.deleteById(id);
+        return "Kandidat berhasil dihapus.";
     }
 }
