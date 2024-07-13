@@ -9,6 +9,9 @@ function TaskItem({
   onDelete: (id: number) => void;
   onEdit: (task: Task) => void;
 }) {
+  const handleEditClick = () => {
+    onEdit(task); // Memanggil fungsi onEdit untuk mengatur editingTask di TaskPage
+  };
   return (
     <div className="p-4 mb-4 bg-white shadow rounded-md flex justify-between items-center">
       <div>
@@ -28,7 +31,7 @@ function TaskItem({
       </div>
       <div>
         <button
-          onClick={() => onEdit(task)}
+          onClick={handleEditClick}
           className="px-4 py-2 mr-2 bg-yellow-500 text-white rounded-md"
         >
           Edit
