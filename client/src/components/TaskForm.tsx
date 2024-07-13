@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Task } from "../types";
 
 function TaskForm({
@@ -12,7 +12,7 @@ function TaskForm({
   const [description, setDescription] = useState(task?.description || "");
   const [status, setStatus] = useState(task?.status || "Pending");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     onSave({ id: task?.id, title, description, status });
   };
