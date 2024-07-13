@@ -10,6 +10,7 @@ import com.prepareutsreactjavaserver.demo.repository.TaskRepository;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/api/tasks")
 public class TaskController {
