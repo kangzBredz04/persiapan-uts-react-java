@@ -8,6 +8,7 @@ function TaskForm({
   onSave: (task: Task) => void;
   task?: Task | null;
 }) {
+  console.log(task?.title);
   const [title, setTitle] = useState(task?.title || "");
   const [description, setDescription] = useState(task?.description || "");
   const [status, setStatus] = useState(task?.status || "Pending");
