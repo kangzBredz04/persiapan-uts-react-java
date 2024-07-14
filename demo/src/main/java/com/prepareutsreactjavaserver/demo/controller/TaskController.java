@@ -26,7 +26,6 @@ public class TaskController {
     @GetMapping("/{id}")
     public Object getTaskById(@PathVariable Long id) {
         Task task = taskRepository.findById(id).orElse(null);
-        // System.out.println(task);
         return task != null ? task : "Tugas dengan ID " + id + " tidak ditemukan.";
     }
 
