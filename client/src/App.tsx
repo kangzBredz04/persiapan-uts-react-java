@@ -1,9 +1,11 @@
-import TaskPage from "./pages/TaskPage";
+import SandalPage from "./pages/SandalPage";
+// import TaskPage from "./pages/TaskPage";
 
 function App() {
   return (
-    <div className="App">
-      <TaskPage />
+    <div>
+      {/* <TaskPage /> */}
+      <SandalPage />
     </div>
   );
 }
