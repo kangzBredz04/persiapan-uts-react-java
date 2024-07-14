@@ -10,8 +10,10 @@ function TaskItem({
   onEdit: (task: Task) => void;
 }) {
   const handleEditClick = () => {
-    onEdit(task); // Memanggil fungsi onEdit untuk mengatur editingTask di TaskPage
+    onEdit(task);
+    console.log(task);
   };
+
   return (
     <div className="p-4 mb-4 bg-white shadow rounded-md flex justify-between items-center">
       <div>
